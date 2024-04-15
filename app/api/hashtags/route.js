@@ -1,4 +1,4 @@
-// ! route for fetching hashtag based blogs
+// ! route for fetching hashtags and  hashtag based blogs
 import { NextResponse } from "next/server"
 import { Scraper } from "../utils/Scraper"
 import puppeteer from "puppeteer"
@@ -34,9 +34,8 @@ export const GET = async () => {
 // ? get posts search using hashtags
 export const POST = async (req) => {
     try {
-        const { hashtag } = await req.json()
-        console.log(hashtag)
-        const results = await Scraper(`https://dev.to/t/${hashtag}`)
+        const { hashtagLink } = await req.json()
+        const results = await Scraper(`https://dev.to/${hashtagLink}`)
         return NextResponse.json({ res: results })
     } catch (error) {
         return NextResponse.json({ res: error.message })
