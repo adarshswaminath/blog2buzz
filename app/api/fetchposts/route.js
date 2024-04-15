@@ -12,8 +12,10 @@ export const GET = async (req, res) => {
             const elements = document.querySelectorAll(".crayons-story__indention .crayons-story__title a");
             
             const data = Array.from(elements).map(element => ({
+                id: element.getAttribute("id"),
                 textContent: element.textContent.trim(),
-                href: element.getAttribute('href')
+                href: element.getAttribute('href'),
+                image: element.getAttribute("data-preload-image"),
             }));
             return data;
         });
