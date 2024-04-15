@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import puppeteer from "puppeteer";
-
+import { GoogleGenerativeAI } from "@google/generative-ai"
 export const GET = async (req, res) => {
     try {
         const website_url = "https://dev.to/";
@@ -10,7 +10,6 @@ export const GET = async (req, res) => {
 
         const results = await page.evaluate(() => {
             const elements = document.querySelectorAll(".crayons-story__indention .crayons-story__title a");
-            
             const data = Array.from(elements).map(element => ({
                 id: element.getAttribute("id"),
                 textContent: element.textContent.trim(),
@@ -32,6 +31,17 @@ export const GET = async (req, res) => {
 };
 
 export const POST = async (req, res) => {
-    const { id } = await req.json();
-    return NextResponse.json({ res: "POST Request" });
+    try {
+        const genAI = new GoogleGenerativeAI(process.env.NEXT_GEMINI_KEY)
+        const model = genAI.getGenerativeModel({ model: "gemini-pro" })
+        const prompt = "Write a story about a magic backpack."
+        const result = await model.generateContent(prompt)
+        const response = await result.response;
+        const text = response.text()
+
+        return NextResponse.json({ res: text });
+    } catch (error) {
+        return NextResponse.json({ res: error.message });
+
+    }
 };
