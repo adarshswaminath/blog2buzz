@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { Scraper } from "../fetchposts/utils/Scraper"
+import { Scraper } from "../utils/Scraper"
 
 export const POST = async(req) => {
     try {
