@@ -1,5 +1,5 @@
+// ! route for fetching all posts
 import { NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai"
 import { Scraper } from "../utils/Scraper";
 import { GenerateAi } from "../utils/GenerateAi";
 
