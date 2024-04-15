@@ -1,28 +1,11 @@
 import { NextResponse } from "next/server";
-import puppeteer from "puppeteer";
 import { GoogleGenerativeAI } from "@google/generative-ai"
+import { Scraper } from "./utils/Scraper";
+
+
 export const GET = async (req, res) => {
     try {
-        const website_url = "https://dev.to/";
-        const browser = await puppeteer.launch({ headless: true });
-        const page = await browser.newPage();
-        await page.goto(website_url);
-
-        const results = await page.evaluate(() => {
-            const elements = document.querySelectorAll(".crayons-story__indention .crayons-story__title a");
-            const data = Array.from(elements).map(element => ({
-                id: element.getAttribute("id"),
-                textContent: element.textContent.trim(),
-                href: element.getAttribute('href'),
-                image: element.getAttribute("data-preload-image"),
-            }));
-            return data;
-        });
-
-        console.log(results);
-
-        await browser.close();
-
+        const results = await Scraper("https://dev.to/t/testing")
         return NextResponse.json({ data: results });
     } catch (error) {
         console.log(error.message);
@@ -32,9 +15,13 @@ export const GET = async (req, res) => {
 
 export const POST = async (req, res) => {
     try {
+        const {textContent,href} = await req.json()
+        const url = `https://dev.to${href}`
+        // ? access the gemini
         const genAI = new GoogleGenerativeAI(process.env.NEXT_GEMINI_KEY)
+        // ? for text only so use gemini-pro model
         const model = genAI.getGenerativeModel({ model: "gemini-pro" })
-        const prompt = "Write a story about a magic backpack."
+        const prompt = `I saw a wonder resource in dev.to  i would like to share with other  can can you create a content for twitter post to share ${textContent} the link is ${url}`
         const result = await model.generateContent(prompt)
         const response = await result.response;
         const text = response.text()
