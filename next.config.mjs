@@ -7,14 +7,7 @@ const nextConfig = {
             hostname: 'media.dev.to',
             port: '',
             pathname: '/cdn-cgi/**',
-          },
-          {
-            protocol: 'https',
-            hostname: 'res.cloudinary.com',
-            port: '',
-            pathname: '/**/**',
-          },
-          
+          }
         ],
       },
 };
