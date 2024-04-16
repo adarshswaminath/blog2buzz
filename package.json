@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.6.0",
+    "daisyui": "^4.10.1",
     "next": "14.2.1",
     "puppeteer": "^22.6.5",
     "react": "^18",
