@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CardBody, CardContainer, CardItem } from "../Components/ui/3d-card"
 
-function Card({ textContent, image }) {
+function Card({ textContent, image,href }) {
     const imageUrlWithoutParams = image.replace(/\width=1000,height=420,fit=cover,gravity=auto,format=auto\//, '/'); 
     return (
         <CardContainer className="inter-var w-[24rem]">
@@ -32,15 +32,15 @@ function Card({ textContent, image }) {
                         alt="thumbnail"
                     />
                 </CardItem>
-                <div className="flex justify-end items-center mt-10">
+                <Link href={`/details${href}`} className="flex justify-end items-center mt-10">
                     <CardItem
                         translateZ={20}
                         as="button"
                         className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
                     >
-                        View More
+                        Explore More
                     </CardItem>
-                </div>
+                </Link>
             </CardBody>
         </CardContainer>
     )
