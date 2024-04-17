@@ -20,7 +20,7 @@ function Explore() {
                 <div className="flex gap-x-6 justify-center items-center flex-wrap">
                     {response ? (
                         <>
-                            {response.slice(0,4).map((data, index) => (
+                            {response.slice(0,6).map((data, index) => (
                                 <Card key={index} {...data} />
                             ))}
                         </>
@@ -30,7 +30,7 @@ function Explore() {
                 </div>
             </div>
             <div className="mt-12 flex items-center justify-center">
-                <Link href="/">
+                <Link href="/explore">
                     {/* <button className="px-12 py-2 rounded-full bg-white hover:text-white text-black hover:bg-purple transition ease-in-out duration-300 font-bold">View More</button> */}
                     <HoverBorderGradient>
                         View More
