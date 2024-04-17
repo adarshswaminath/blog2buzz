@@ -16,7 +16,7 @@ function Explore() {
         <div className="p-3">
             <div className="flex flex-col items-start">
                 <h2 className="p-3 text-xl font-bold text-white">Explore blogs!</h2>
-                <div className="flex gap-2 justify-center items-center flex-wrap">
+                <div className="flex gap-x-6 justify-center items-center flex-wrap">
                     {response ? (
                         <>
                             {response.slice(0, 4).map((data, index) => (
