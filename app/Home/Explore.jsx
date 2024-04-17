@@ -20,7 +20,7 @@ function Explore() {
                 <div className="flex gap-x-6 justify-center items-center flex-wrap">
                     {response ? (
                         <>
-                            {response.slice(0, 6).map((data, index) => (
+                            {response.slice(0,4).map((data, index) => (
                                 <Card key={index} {...data} />
                             ))}
                         </>
