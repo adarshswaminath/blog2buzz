@@ -4,7 +4,7 @@ import Link from "next/link";
 import { CardBody, CardContainer, CardItem } from "../Components/ui/3d-card"
 
 function Card({ textContent, image }) {
-    const imageUrlWithoutParams = image.replace(/\width=1000,height=420,fit=cover,gravity=auto,format=auto\//, '/');
+    const imageUrlWithoutParams = image.replace(/\width=1000,height=420,fit=cover,gravity=auto,format=auto\//, '/'); 
     return (
         <CardContainer className="inter-var w-[24rem]">
             <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]  sm:w-[30rem] h-auto min-h-[32rem] rounded-xl p-6 border  ">
@@ -13,6 +13,7 @@ function Card({ textContent, image }) {
                     className="text-xl font-bold text-neutral-600 dark:text-white"
                 >
                     {textContent}
+                    
                 </CardItem>
                 {/* //! this card item is with opacity zero if it remove card structure got broke */}
                 <CardItem
@@ -24,7 +25,7 @@ function Card({ textContent, image }) {
                 </CardItem>
                 <CardItem translateZ="100" className="w-full mt-4">
                     <Image
-                        src={imageUrlWithoutParams}
+                        src={image ? imageUrlWithoutParams : "/empty.jpg"}
                         height="1000"
                         width="1000"
                         className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"

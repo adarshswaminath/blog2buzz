@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Card from "../Components/Card"
+import Tags from "../Home/Tags"
 
 function page() {
     const [response, setResponse] = useState()
@@ -28,6 +29,7 @@ function page() {
                     )}
                 </div>
             </div>
+            <Tags/>
 
         </div>
     )
