@@ -8,7 +8,7 @@ function Navbar() {
                 <h3 className='text-2xl font-bold'>Blog2Tweet</h3>
                 <div className="flex space-x-6 lg:space-x-12">
                     <Link href="/">Home</Link>
-                    <Link href="/">Tags</Link>
+                    <Link href="/#tags">Tags</Link>
                     <Link href="/">Saved</Link>
                 </div>
             </div>
