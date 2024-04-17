@@ -13,10 +13,10 @@ function Explore() {
             .catch((err) => new Error("Some thing failed"))
     }, [])
     return (
-        <div className="p-4">
+        <div className="p-3">
             <div className="flex flex-col items-start">
                 <h2 className="p-3 text-xl font-bold text-white">Explore blogs!</h2>
-                <div className="flex items-center flex-wrap justify-center gap-x-6">
+                <div className="flex gap-2 justify-center items-center flex-wrap">
                     {response ? (
                         <>
                             {response.slice(0, 4).map((data, index) => (
@@ -28,7 +28,7 @@ function Explore() {
                     )}
                 </div>
             </div>
-            <div className="mt-6 flex items-center justify-center">
+            <div className="mt-12 flex items-center justify-center">
                 <Link href="/">
                     <button className="px-12 py-2 rounded-full bg-white hover:text-white text-black hover:bg-purple transition ease-in-out duration-300 font-bold">View More</button>
                 </Link>

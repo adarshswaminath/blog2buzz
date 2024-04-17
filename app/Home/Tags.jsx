@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
 function Tags() {
-    const [tags,setTags] = useState([])
+    const [tags,setTags] = useState()
     useEffect(() => {
         fetch("/api/hashtags")
         .then((res) => res.json())
@@ -12,7 +12,7 @@ function Tags() {
     },[])
   
   return (
-    <div>
+    <div className='mt-12'>
         <h2 className="text-xl text-white text-center">Tags</h2>
         <div className="grid grid-cols-10 gap-3">
         {tags ? (
