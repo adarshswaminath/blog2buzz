@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Card from '@/app/Components/Card'
 import Tags from '@/app/Home/Tags'
+import Loading from '@/app/Components/Loading'
 
 function page({ params: { hashtag } }) {
   const [posts, setPosts] = useState()
@@ -28,7 +29,7 @@ function page({ params: { hashtag } }) {
   return (
     <div className='min-h-screen'>
       <h2 className='text-center text-3xl text-white font-bold capitalize'>Result For <span className="text-gray">#{hashtag}</span></h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-3">
+      <div className="flex flex-wrap gap-x-3 items-center justify-center">
         {posts ? (
           <>
             {posts.map((data, index) => (
@@ -36,7 +37,7 @@ function page({ params: { hashtag } }) {
             ))}
           </>
         ) : (
-          "Loading...."
+          <Loading/>
         )}
       </div>
       <Tags/>

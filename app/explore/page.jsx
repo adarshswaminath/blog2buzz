@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import Card from "../Components/Card"
 import Tags from "../Home/Tags"
+import Loading from "../Components/Loading"
 
 function page() {
     const [response, setResponse] = useState()
@@ -17,7 +18,7 @@ function page() {
         <div className="p-3 min-h-screen">
             <div className="flex flex-col items-center">
                 <h2 className="p-3 text-xl font-bold text-white">Explore All blogs!</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-3">
+                <div className="flex items-center justify-center flex-wrap gap-x-3">
                     {response ? (
                         <>
                             {response.map((data, index) => (
@@ -25,7 +26,7 @@ function page() {
                             ))}
                         </>
                     ) : (
-                        "Loading...."
+                        <Loading/>
                     )}
                 </div>
             </div>

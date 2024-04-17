@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import Card from "../Components/Card"
 import Link from "next/link"
 import HoverBorderGradient from "../Components/ui/hover-border-gradient"
+import Loading from "../Components/Loading"
 
 function Explore() {
     const [response, setResponse] = useState()
@@ -25,7 +26,7 @@ function Explore() {
                             ))}
                         </>
                     ) : (
-                        "Loading...."
+                       <Loading/>
                     )}
                 </div>
             </div>
