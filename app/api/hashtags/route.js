@@ -34,8 +34,9 @@ export const GET = async () => {
 // ? get posts search using hashtags
 export const POST = async (req) => {
     try {
-        const { hashtagLink } = await req.json()
-        const results = await Scraper(`https://dev.to/${hashtagLink}`)
+        const { hashtag } = await req.json()
+        console.log(`https://dev.to/t/${hashtag}`)
+        const results = await Scraper(`https://dev.to/t/${hashtag}`)
         return NextResponse.json({ res: results })
     } catch (error) {
         return NextResponse.json({ res: error.message })
