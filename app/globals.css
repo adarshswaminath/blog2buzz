@@ -15,3 +15,20 @@ body {
   /* background: #171717; */
 
  }
+
+ /* Target Chrome/Safari */
+::-webkit-scrollbar {
+  width: 3px; /* Width of the scrollbar track */
+  height: 3px; /* Height of the scrollbar track */
+}
+
+/* Target the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: #171717; /* Color of the scrollbar thumb */
+  border-radius: 5px; /* Add rounded corners to the thumb */
+}
+
+/* Target the track (minus the thumb) */
+::-webkit-scrollbar-track {
+  background: #ddd; /* Color of the scrollbar track */
+}
