@@ -16,7 +16,7 @@ function AIContentGeneration({ title, article, url }) {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ article: article })
+                body: JSON.stringify({ article: article,userSelect: userSelect })
             })
             const data = await response.json()
             SetContent(data.res)
