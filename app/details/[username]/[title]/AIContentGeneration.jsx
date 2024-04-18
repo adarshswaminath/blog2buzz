@@ -86,8 +86,9 @@ function AIContentGeneration({ title, article, url }) {
                     </button>}
                 </div>
                 {content ? (
+                     // ?if user click to generate content display please wait message else show the content
                     <ReactMarkdown remarkPlugins={[gfm]} className='text-wrap '>
-                        {content}
+                       {isSubmit ?  "Content Generating Please Wait ......" : content }
                     </ReactMarkdown>
                 ) : "Generate Your Content...."}
             </div>
