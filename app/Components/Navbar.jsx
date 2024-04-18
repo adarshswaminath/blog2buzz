@@ -9,7 +9,7 @@ function Navbar() {
                 <div className="flex space-x-6 lg:space-x-12">
                     <Link href="/">Home</Link>
                     <Link href="/#tags">Tags</Link>
-                    <Link href="/">Saved</Link>
+                    <Link href="/saved">Saved</Link>
                 </div>
             </div>
         </nav>
