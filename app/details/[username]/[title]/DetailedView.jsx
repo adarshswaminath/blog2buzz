@@ -6,7 +6,7 @@ import SaveThePost from './SaveThePost'
 
 export default function DetailedView({ response, article_url }) {
   const { imageUrl, title, article } = response
-  console.table(response)
+
   return (
     <div>
       {imageUrl && <Image src={imageUrl} alt='Image Not found'
