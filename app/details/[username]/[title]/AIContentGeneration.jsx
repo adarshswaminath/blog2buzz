@@ -2,6 +2,8 @@
 import React, { useState } from 'react'
 import { IoSparklesSharp } from "react-icons/io5";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import ReactMarkdown from 'react-markdown'
+import gfm from 'remark-gfm'
 
 function AIContentGeneration({ title, article, url }) {
     const [content, SetContent] = useState()
@@ -16,7 +18,7 @@ function AIContentGeneration({ title, article, url }) {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ article: article,userSelect: userSelect })
+                body: JSON.stringify({ title:title,article: article, userSelect: userSelect })
             })
             const data = await response.json()
             SetContent(data.res)
@@ -37,7 +39,7 @@ function AIContentGeneration({ title, article, url }) {
                 {/* //* options */}
                 <div className="flex items-center space-x-4">
                     {userOption.map((value, index) => (
-                        <button key={index} onClick={() => setUserSelect(index + 1)} className={`bg-gray rounded-full text-white w-8 h-8 hover:w-56 overflow-hidden duration-500 ease-in-out group flex items-center justify-center text-sm font-bold ${userSelect === index+1 ? "bg-gradient-to-tr from-purple to-blue" : "bg-gray"}`}>
+                        <button key={index} onClick={() => setUserSelect(index + 1)} className={`bg-gray rounded-full text-white w-8 h-8 hover:w-56 overflow-hidden duration-500 ease-in-out group flex items-center justify-center text-sm font-bold ${userSelect === index + 1 ? "bg-gradient-to-tr from-purple to-blue" : "bg-gray"}`}>
                             <span className='group-hover:opacity-0 opacity-100 transition-opacity ease-in-out'>{index + 1}</span>
                             <span className='group-hover:block hidden'>{value}</span>
                         </button>
@@ -58,12 +60,11 @@ function AIContentGeneration({ title, article, url }) {
                 </button>
             </div>
             {/* //*section to display the content */}
-            <div className='mt-2 p-2 w-full bg-gray/50 shadow-lg h-72 rounded-lg overflow-scroll'>
+            <div className='mt-2 p-4 w-full bg-gray/50 shadow-lg h-auto rounded-lg overflow-scroll text-white font-mono tracking-wide'>
                 {content ? (
-                    <section className='text-white'>
-                        {content}
-                        {url}
-                    </section>
+                    <ReactMarkdown remarkPlugins={[gfm]} className='text-wrap '>
+                            {content}
+                    </ReactMarkdown>
                 ) : "Generate Your Content...."}
             </div>
 
