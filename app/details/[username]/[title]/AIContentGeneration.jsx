@@ -27,15 +27,9 @@ function AIContentGeneration({ title, article, url }) {
     }
     return (
         <div className='w-full'>
+            <h3 className="text-3xl lg:text-4xl text-white font-bold">AI-Driven Content Transformation Suite</h3>
             {/* body */}
-            <div className='mt-2 p-2 w-full bg-gray/50 shadow-lg h-72 rounded-lg overflow-scroll'>
-                {content ? (
-                    <section className='text-white'>
-                        {content}
-                        {url}
-                    </section>
-                ) : "Generate Your Content...."}
-            </div>
+            {/* buttons */}
             <div className="flex justify-end mt-5">
                 <button disabled={isSubmit} onClick={generateContent} className={`btn text-white ${isSubmit ? "bg-[#248AE9] text-white disabled:text-white" : "bg-gradient-to-br from-[#248AE9] to-purple hover:bg-[#248AE9] font-bold"}`}>
                     {isSubmit ? (
@@ -51,6 +45,16 @@ function AIContentGeneration({ title, article, url }) {
                     )}
                 </button>
             </div>
+            {/* //*section to display the content */}
+            <div className='mt-2 p-2 w-full bg-gray/50 shadow-lg h-72 rounded-lg overflow-scroll'>
+                {content ? (
+                    <section className='text-white'>
+                        {content}
+                        {url}
+                    </section>
+                ) : "Generate Your Content...."}
+            </div>
+          
         </div>
     )
 }

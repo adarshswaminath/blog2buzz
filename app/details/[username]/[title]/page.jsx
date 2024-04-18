@@ -3,6 +3,7 @@
 import Loading from '@/app/Components/Loading'
 import React, { useEffect, useState } from 'react'
 import DetailedView from './DetailedView'
+import Tags from '@/app/Home/Tags'
 
 export default function page({params}) {
   const [response,setResponse] = useState()
@@ -27,7 +28,6 @@ export default function page({params}) {
     window.scrollTo(0,0)
     makeTheApiCall()
   },[])
-console.log(response)
   return (
     <div className='min-h-screen p-4'>
       {response ? (
@@ -36,6 +36,7 @@ console.log(response)
       ) : (
         <Loading/>
       )}
+      <Tags/>
     </div>
   )
 }
