@@ -24,11 +24,12 @@ body {
 
 /* Target the scrollbar thumb */
 ::-webkit-scrollbar-thumb {
-  background: #171717; /* Color of the scrollbar thumb */
+  background: linear-gradient(95deg,#e90df3,blue);
+  /* background: #171717; */
   border-radius: 5px; /* Add rounded corners to the thumb */
 }
 
 /* Target the track (minus the thumb) */
 ::-webkit-scrollbar-track {
-  background: #ddd; /* Color of the scrollbar track */
+  background: #000; /* Color of the scrollbar track */
 }

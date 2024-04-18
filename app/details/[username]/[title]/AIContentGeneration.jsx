@@ -6,6 +6,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 function AIContentGeneration({ title, article, url }) {
     const [content, SetContent] = useState()
     const [isSubmit, setSubmit] = useState(false)
+    const [userSelect, setUserSelect] = useState(1)
     // ** function api call
     async function generateContent() {
         try {
@@ -25,13 +26,24 @@ function AIContentGeneration({ title, article, url }) {
             setSubmit(false)
         }
     }
+    // ? user option for what type of content they want
+    const userOption = ["Summerise Content", "Create a Tweet", "Create a Medium Write Up"]
     return (
         <div className='w-full'>
             <h3 className="text-3xl lg:text-4xl text-white font-bold">AI-Driven Content Transformation Suite</h3>
             {/* body */}
             {/* buttons */}
-            <div className="flex justify-end mt-5">
-                <button disabled={isSubmit} onClick={generateContent} className={`btn text-white ${isSubmit ? "bg-[#248AE9] text-white disabled:text-white" : "bg-gradient-to-br from-[#248AE9] to-purple hover:bg-[#248AE9] font-bold"}`}>
+            <div className="flex justify-between mt-5">
+                {/* //* options */}
+                <div className="flex items-center space-x-4">
+                    {userOption.map((value, index) => (
+                        <button key={index} onClick={() => setUserSelect(index + 1)} className={`bg-gray rounded-full text-white w-8 h-8 hover:w-56 overflow-hidden duration-500 ease-in-out group flex items-center justify-center text-sm font-bold ${userSelect === index+1 ? "bg-gradient-to-tr from-purple to-blue" : "bg-gray"}`}>
+                            <span className='group-hover:opacity-0 opacity-100 transition-opacity ease-in-out'>{index + 1}</span>
+                            <span className='group-hover:block hidden'>{value}</span>
+                        </button>
+                    ))}
+                </div>
+                <button disabled={isSubmit} onClick={generateContent} className={`btn text-white ${isSubmit ? "bg-blue text-white disabled:text-white" : "bg-gradient-to-br from-blue to-purple hover:bg-blue font-bold"}`}>
                     {isSubmit ? (
                         <>
                             Generating Content
@@ -54,7 +66,7 @@ function AIContentGeneration({ title, article, url }) {
                     </section>
                 ) : "Generate Your Content...."}
             </div>
-          
+
         </div>
     )
 }
