@@ -15,7 +15,7 @@ function Explore() {
             .catch((err) => new Error("Some thing failed"))
     }, [])
     return (
-        <div className="p-3">
+        <div className="p-3" id="explore">
             <div className="flex flex-col items-center">
                 <h2 className="p-3 text-xl font-bold text-white">Explore blogs!</h2>
                 <div className="flex gap-x-6 justify-center items-center flex-wrap">

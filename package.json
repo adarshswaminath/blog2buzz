@@ -23,6 +23,7 @@
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.0",
     "remark-html": "^16.0.1",
+    "simplex-noise": "^4.0.1",
     "tailwind-merge": "^2.2.2"
   },
   "devDependencies": {

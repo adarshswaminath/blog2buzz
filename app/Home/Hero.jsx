@@ -1,4 +1,4 @@
-import { FaGithub } from "react-icons/fa"
+import { FaArrowDown } from "react-icons/fa6"
 
 function Hero() {
   return (
@@ -8,7 +8,9 @@ function Hero() {
     <div>
       <h1 className="text-5xl font-bold max-w-2xl">Discover, Share, Engage: Blog2Buzz Makes it Effortless! </h1>
       <p className="py-6">The ultimate tool for seamlessly transforming trending blog posts into captivating tweets.</p>
-      <button className="btn bg-white text-black hover:text-white px-12 rounded-full">Follow On <FaGithub className="text-xl"/></button>
+     <a href="#explore">
+     <button className="btn bg-white text-black hover:text-white px-12 rounded-full">Explore <FaArrowDown className="text-"/></button>
+     </a>
     </div>
   </div>
 </div>
