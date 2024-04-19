@@ -1,21 +1,25 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaRegBookmark } from "react-icons/fa";
 import { IoMdBookmark } from "react-icons/io";
-function SaveThePost(response) {
+function SaveThePost({dataToSave}) {
     const [isSaved,setIsSaved] = useState(false)
     
-    
     const savePost = () => {
-        setIsSaved(true)
-        // ? create a copy
-        const post = response.response
-        localStorage.setItem("posts",JSON.stringify(post))
+        setIsSaved(true);
+        
+        //? Retrieve existing posts array from local storage or initialize it if not exists
+        let posts = JSON.parse(localStorage.getItem("posts")) || [];
+        //? Add the new post to the beginning of the array (LIFO order)
+        posts.unshift(dataToSave);
+        //? Save the updated array back to the local storage
+        localStorage.setItem("posts", JSON.stringify(posts));
         setTimeout(() => {
-            setIsSaved(false)
-        },900)
+            setIsSaved(false);
+        }, 900);
     }
+    
   return (
     <button onClick={savePost} className="btn border-none bg-transparent">
         {isSaved ? (

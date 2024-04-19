@@ -6,6 +6,14 @@ import SaveThePost from './SaveThePost'
 
 export default function DetailedView({ response, article_url }) {
   const { imageUrl, title, article } = response
+  
+  // ? data to save 
+  const dataToSave = {
+    "imageUrl": imageUrl,
+    "title": title,
+    "article": article,
+    "article_url": article_url
+  }
 
   return (
     <div>
@@ -23,7 +31,7 @@ export default function DetailedView({ response, article_url }) {
               <button className='btn text-white bg-gradient-to-br from-[#248AE9] to-purple hover:bg-purple font-bold'>Read Full Article</button>
             </a>
            {/* // ?save the post */}
-           <SaveThePost response={response}/>
+           <SaveThePost dataToSave={dataToSave}/>
           </div>
         </div>
          {/* Ai Content */}
