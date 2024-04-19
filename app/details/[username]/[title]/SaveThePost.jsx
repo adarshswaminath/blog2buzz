@@ -12,17 +12,19 @@ function SaveThePost(response) {
         // ? create a copy
         const post = response.response
         localStorage.setItem("posts",JSON.stringify(post))
-        setIsSaved(false)
+        setTimeout(() => {
+            setIsSaved(false)
+        },900)
     }
   return (
     <button onClick={savePost} className="btn border-none bg-transparent">
         {isSaved ? (
-            <div className='flex items-center gap-x-2 text-base'> <IoMdBookmark className='text-2xl text-purple animate-bounce'/> Saved</div>
+            <span className='flex items-center gap-x-2 text-base'> <IoMdBookmark className='text-2xl text-purple animate-bounce'/> Saved</span>
 
         ) : (
-            <div className='flex items-center gap-x-2 text-base'>
+            <span className='flex items-center gap-x-2 text-base'>
                 <FaRegBookmark/> Save
-            </div>
+            </span>
         )}
     </button>
   )
