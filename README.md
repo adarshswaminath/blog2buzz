@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blog2Buzz
 
-## Getting Started
+Blog2Buzz is a web application designed to help developers, students, security specialists, and anyone in the tech industry stay updated with current market technology. It leverages web scraping, AI assistance, and social media integration to provide a seamless experience for accessing and sharing the latest blogs from dev.to.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Access the latest blogs from dev.to using web scraping techniques.
+- Utilize AI assistance from Gemini for content summarization and social media content creation.
+- Seamless integration with social media platforms for easy sharing of knowledge.
+- Built with Next.js, Tailwind CSS, Axios, and Cheerio for efficient development and deployment.
+- Utilizes the modern components from Aceternity for a sleek and polished user interface.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Next.js: A React framework for building server-rendered applications.
+- Tailwind CSS: A utility-first CSS framework for rapid UI development.
+- Axios: A promise-based HTTP client for making HTTP requests.
+- Cheerio: A fast, flexible, and lightweight jQuery-like library for web scraping.
+- Gemini: AI assistance for content summarization and social media content creation.
+- Aceternity: Modern UI components for creating a sleek user interface.
+- Vercel: A cloud platform for static sites and serverless functions, used for deployment.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
