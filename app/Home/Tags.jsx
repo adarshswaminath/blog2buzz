@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Loading from '../Components/Loading'
 
 function Tags() {
-  const tags = ["#webdev", "#javascript", "#beginners", "#programming", "#tutorial", "#react", "#python", "#djnago","#ai", "#devops", "#productivity", "#aws", "#discuss", "#opensource", "#node", "#machinelearning", "#typescript", "#career", "#css", "#datascience", "#java", "#testing", "#android", "#learning", "#news", "#nextjs", "#security", "#database", "#frontend", "#html", "#php","#3d"]
+  const tags = ["#3d", "#ai", "#android", "#aws", "#beginners", "#career", "#css", "#database", "#datascience", "#devops", "#discuss", "#djnago", "#frontend", "#html", "#java", "#javascript", "#learning", "#linux", "#machinelearning", "#news", "#nextjs", "#node", "#opensource", "#php", "#productivity", "#programming", "#react", "#security", "#testing", "#tutorial", "#typescript", "#webdev"];
   return (
     <div className='mt-12' id="tags">
       <h2 className="text-xl text-white text-center font-bold mb-4">Blog Categories</h2>
