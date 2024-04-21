@@ -1,28 +1,27 @@
-import puppeteer from "puppeteer";
+import axios from "axios";
+import cheerio from "cheerio";
 
-// * function for webscrapping
+// * function for webscraping
 export const Scraper = async (url) => {
     try {
-        // todo do the webscraping
-        const browser = await puppeteer.launch({ headless: true });
-        const page = await browser.newPage();
-        await page.goto(url);
+        // Fetch HTML content of the page
+        const response = await axios.get(url);
+        const html = response.data;
 
-        const results = await page.evaluate(() => {
-            //* scrap the required fields from the dev.to
-            const elements = document.querySelectorAll(".crayons-story__indention .crayons-story__title a");
-            const data = Array.from(elements).map(element => ({
-                id: element.getAttribute("id"),
-                textContent: element.textContent.trim(),
-                href: element.getAttribute('href'),
-                image: element.getAttribute("data-preload-image"),
-            }));
-            return data;
-        });
-        // ! must close the browser
-        await browser.close();
-        return results
+        // Load HTML content into Cheerio
+        const $ = cheerio.load(html);
+
+        const results = $(".crayons-story__indention .crayons-story__title a").map((index, element) => {
+            return {
+                id: $(element).attr("id"),
+                textContent: $(element).text().trim(),
+                href: $(element).attr("href"),
+                image: $(element).attr("data-preload-image"),
+            };
+        }).get();
+
+        return results;
     } catch (error) {
-        return null
+        return null;
     }
-}
+};

@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.6.0",
+    "axios": "^1.6.8",
+    "cheerio": "^1.0.0-rc.12",
     "clsx": "^2.1.0",
     "daisyui": "^4.10.1",
     "framer-motion": "^11.1.1",
