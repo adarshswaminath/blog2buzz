@@ -23,7 +23,7 @@ export default function About() {
                 </div>
 
             </Vortex>
-            <div className="lg:hidden flex justify-center mt-10">
+            <div className="lg:hidden md:flex flex justify-center mt-10">
                 <a href="">
                     <button className="btn bg-white text-black hover:text-white px-12 rounded-full">View Project In <FaGithub className="text-xl" /></button>
                 </a>
