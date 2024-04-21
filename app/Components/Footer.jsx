@@ -8,13 +8,13 @@ export default function Footer() {
                 <p className="font-bold">blog2buzz</p>
             </aside>
             <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-                <a className="text-2xl hover:text-white hover:scale-125 transition ease-in-out">
+                <a href="https://github.com/adarshswaminath" target="_blank" className="text-2xl hover:text-white hover:scale-125 transition ease-in-out">
                     <FaGithub/>
                 </a>
-                <a className="text-2xl hover:text-white hover:scale-125 transition ease-in-out">
+                <a href="https://twitter.com/AdarshS002" target="_blank" className="text-2xl hover:text-white hover:scale-125 transition ease-in-out">
                     <FaXTwitter/>
                 </a>
-                <a className="text-2xl hover:text-white hover:scale-125 transition ease-in-out">
+                <a href="https://www.linkedin.com/in/adarshswaminath" target="_blank" className="text-2xl hover:text-white hover:scale-125 transition ease-in-out">
                     <FaLinkedinIn/>
                 </a>
             </nav>

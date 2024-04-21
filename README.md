@@ -1,6 +1,6 @@
 # Blog2Buzz
 
-Blog2Buzz is a web application designed to help developers, students, security specialists, and anyone in the tech industry stay updated with current market technology. It leverages web scraping, AI assistance, and social media integration to provide a seamless experience for accessing and sharing the latest blogs from dev.to.
+Blog2Buzz is a web application designed to help developers, students, security specialists, and anyone in the tech industry stay updated with current market technology. It leverages web scraping and AI assistance to provide a seamless experience for accessing , summerizing and sharing the latest blogs from dev.to.
 
 ## Features
 
