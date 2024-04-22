@@ -2,9 +2,9 @@
 
 **Blog2Buzz** is a cutting-edge web application designed to empower developers, students, security specialists, and anyone in the tech industry to stay informed about the latest market trends and technologies. It seamlessly integrates web scraping and AI assistance to deliver an exceptional experience for:
 
-* ** Accessing** the hottest blogs from dev.to
-* ** Summarizing** content with the power of AI (powered by Gemini)
-* ** Sharing** insights on social media (also assisted by Gemini)
+* **Accessing** the hottest blogs from dev.to
+* **Summarizing** content with the power of AI (powered by Gemini)
+* **Sharing** insights on social media (also assisted by Gemini)
 
 Built with a focus on efficiency and a sleek user interface, Blog2Buzz leverages a powerful tech stack:
 
