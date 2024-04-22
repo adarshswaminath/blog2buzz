@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { IoSparklesSharp } from "react-icons/io5";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { MdContentCopy } from "react-icons/md";
+import { FaXTwitter } from "react-icons/fa6";
 import { LiaCheckDoubleSolid } from "react-icons/lia";
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
@@ -92,6 +93,15 @@ function AIContentGeneration({ title, article, url }) {
                     </ReactMarkdown>
                 ) : "Generate Your Content...."}
             </div>
+
+            {/* //*if user selected twitter and content generated user can directly share the post in twitter  */}
+            {(userSelect === 2 && content) ? (
+                <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=Check out this post: ${encodeURIComponent(content)}`} target='_blank' className="flex justify-start">
+                   <button className="btn mt-2">
+                   Tweet Full Post <FaXTwitter className='text-xl'/>
+                   </button>
+                </a>
+            ) : null }
 
         </div>
     )
