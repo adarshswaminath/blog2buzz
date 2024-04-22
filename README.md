@@ -24,7 +24,7 @@ Stay tuned for further updates on Blog2Buzz as it empowers you to navigate the e
 
 Excited to try out Blog2Buzz? Here's how to get it up and running on your local machine:
 
-1. **Prerequisites:** Ensure you have Node.js and npm (or yarn) installed on your system. You can verify this by running `node -v` and `npm -v` (or `yarn -v`) in your terminal. If not installed, download them from the official Node.js website (https://nodejs.org/en).
+1. **Prerequisites:** Ensure you have Node.js and npm installed on your system. You can verify this by running `node -v` and `npm -v` in your terminal. If not installed, download them from the official Node.js website (https://nodejs.org/en).
 2. **Clone the Repository:** Use Git to clone the Blog2Buzz source code repository from your preferred version control platform (e.g., GitHub).
 
     ```bash 
