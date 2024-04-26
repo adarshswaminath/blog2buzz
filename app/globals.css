@@ -36,3 +36,7 @@ body {
 ::-webkit-scrollbar-track {
   background: #000; /* Color of the scrollbar track */
 }
+
+input {
+  @apply  rounded-lg input bg-black outline-none border-none;
+}

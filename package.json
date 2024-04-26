@@ -11,6 +11,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.6.0",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/auth-ui-react": "^0.4.7",
     "@supabase/supabase-js": "^2.42.7",
     "axios": "^1.6.8",
     "cheerio": "^1.0.0-rc.12",
