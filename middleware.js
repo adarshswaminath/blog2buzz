@@ -13,5 +13,5 @@ export async function middleware(req) {
 }
 
 export const config = {
-    matcher: ["/saved"]
+    matcher: ["/saved","/details/(.*)"]
 }

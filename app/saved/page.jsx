@@ -1,20 +1,28 @@
-"use client";
 
-import React, { useEffect, useState } from 'react';
 import Loading from '../Components/Loading';
 import Image from 'next/image';
 import { BackgroundGradient } from '../Components/ui/background-gradient';
+import { cookies } from 'next/headers';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { deleteBlog } from '../server-actions/deleteBlog';
 
-export default function Page() {
-  const [posts, setPosts] = useState([]);
+export default async function Page() {
 
-  useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("posts")) || [];
-    console.log(data)
-    setPosts(data);
-  }, []);
+  const cookieStore = cookies()
+  const supabase = createServerComponentClient({cookies: () => cookieStore})
+  const {data: {session}} = await supabase.auth.getSession()
+  const user = session?.user
+  const {data: blog2buzz,error} = await supabase.from("blog2buzz")
+    .select("*")
+    .eq('user_id',user.id)
+    // .order('id',{ascending: true})
 
-  console.log(posts)
+    console.log(blog2buzz)
+  if(error){
+    console.log("error fetching blogs",error)
+  }
+  const posts =[]
+ 
   return (
     <main className="min-h-screen">
       <div className="flex items-center justify-between p-3 px-12">
@@ -25,10 +33,10 @@ export default function Page() {
         </form>
       </div>
       <div className='flex flex-wrap gap-2 justify-center items-center mt-6'>
-        {posts.map((data, index) => (
+        {blog2buzz.map((data, index) => (
           <BackgroundGradient key={index} className="rounded-[22px] min-h-96 max-w-sm p-4 sm:p-10 bg-background">
             <Image
-              src={data.imageUrl}
+              src={data.image_url}
               alt="jordans"
               height="400"
               width="400"
@@ -39,16 +47,21 @@ export default function Page() {
             </p>
 
             <p className="text-sm text-white">
-              {data.article.slice(0, 200)}...
+              {data.body}...
             </p>
             <div className="flex items-center justify-between mt-3">
-              <a href={`https://dev.to/${data.article_url}`} target="_blank" rel="noopener noreferrer">
+              <a href={`https://dev.to/${data.url}`} target="_blank" rel="noopener noreferrer">
                 <button className="px-6 py-2 text-base rounded-full bg-black text-white">
                   <span>Read full Article</span>
                 </button>
               </a>
               {/* button to delete */}
-              <button>Delete</button>
+              <form action={deleteBlog}>
+                <input type="hidden" name="id" value={data.id} />
+                <button>
+                  Delete
+                </button>
+              </form>
             </div>
           </BackgroundGradient>
         ))}

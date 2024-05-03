@@ -2,11 +2,12 @@ import React from 'react'
 import Image from 'next/image'
 import AIContentGeneration from './AIContentGeneration'
 import SaveThePost from './SaveThePost'
+import { addBlog } from '@/app/server-actions/addBlog'
 
 
 export default function DetailedView({ response, article_url }) {
   const { imageUrl, title, article } = response
-  
+
   // ? data to save 
   const dataToSave = {
     "imageUrl": imageUrl,
@@ -30,12 +31,33 @@ export default function DetailedView({ response, article_url }) {
             <a href={`https://dev.to/${article_url}`} target='_blank'>
               <button className='btn text-white bg-gradient-to-br from-[#248AE9] to-purple hover:bg-purple font-bold'>Read Full Article</button>
             </a>
-           {/* // ?save the post */}
-           <SaveThePost dataToSave={dataToSave}/>
+            {/* // ?save the post */}
+            <form action={addBlog}>
+              <input
+                type="hidden"
+                name="imageUrl"
+                value={imageUrl} />
+              <input
+                type="hidden"
+                name="title"
+                value={title} />
+              <input
+                type="hidden"
+                name="article"
+                value={article.slice(0, 512)} />
+              <input
+                type="hidden"
+                name="article_url"
+                value={article_url} />
+                <button type="submit">
+                  Save
+                </button>
+            </form>
+            {/* <SaveThePost dataToSave={dataToSave}/> */}
           </div>
         </div>
-         {/* Ai Content */}
-         <div className="mt-12 flex w-full">
+        {/* Ai Content */}
+        <div className="mt-12 flex w-full">
           <AIContentGeneration title={title} article={article} url={`https://dev.to/${article_url}`} />
         </div>
       </div>
