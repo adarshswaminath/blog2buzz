@@ -12,7 +12,8 @@ module.exports = {
       'background': '#171717',
       'black': "#000",
       'gray': '#475569',
-      "blue": "#248AE9"
+      "blue": "#248AE9",
+      "red": "#ef4444",
     },
     extend: {},
   },

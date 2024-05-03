@@ -5,6 +5,8 @@ import { BackgroundGradient } from '../Components/ui/background-gradient';
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { deleteBlog } from '../server-actions/deleteBlog';
+import { BsFillTrash3Fill } from "react-icons/bs";
+
 
 export default async function Page() {
 
@@ -58,8 +60,9 @@ export default async function Page() {
               {/* button to delete */}
               <form action={deleteBlog}>
                 <input type="hidden" name="id" value={data.id} />
-                <button>
-                  Delete
+                <button 
+                className='btn bg-black hover:bg-black hover:text-red px-6 py-2 rounded-full hover:rounded-lg  font-bold text-white'>
+                  Delete <BsFillTrash3Fill/>
                 </button>
               </form>
             </div>
