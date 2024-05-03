@@ -49,7 +49,7 @@ export default function DetailedView({ response, article_url }) {
                 type="hidden"
                 name="article_url"
                 value={article_url} />
-                <button type="submit">
+                <button className='px-6 py-2 text-white' type="submit">
                   Save
                 </button>
             </form>
