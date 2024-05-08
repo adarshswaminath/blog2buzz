@@ -23,7 +23,7 @@ export default async function Page() {
   if(error){
     console.log("error fetching blogs",error)
   }
-  const posts =[]
+  
  
   return (
     <main className="min-h-screen">
@@ -35,7 +35,11 @@ export default async function Page() {
         </form>
       </div>
       <div className='flex flex-wrap gap-2 justify-center items-center mt-6'>
-        {blog2buzz.map((data, index) => (
+        {(blog2buzz.length != 0) ?
+         (
+          <p>No save data</p>
+         )
+        :blog2buzz.map((data, index) => (
           <BackgroundGradient key={index} className="rounded-[22px] min-h-96 max-w-sm p-4 sm:p-10 bg-background">
             <Image
               src={data.image_url}
