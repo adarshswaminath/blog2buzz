@@ -6,6 +6,7 @@ import { CardBody, CardContainer, CardItem } from "../Components/ui/3d-card"
 function Card({ textContent, image,href }) {
     const imageUrlWithoutParams = image.replace(/\width=1000,height=420,fit=cover,gravity=auto,format=auto\//, '/'); 
     return (
+        <Link href={`/details/${href}`}>
         <CardContainer className="inter-var w-[24rem]">
             <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1]  sm:w-[30rem] h-auto min-h-[32rem] rounded-xl p-6 border  ">
                 <CardItem
@@ -32,7 +33,7 @@ function Card({ textContent, image,href }) {
                         alt="thumbnail"
                     />
                 </CardItem>
-                <Link href={`/details${href}`} className="flex justify-end items-center mt-10">
+                <Link href={`/details/${href}`} className="flex justify-end items-center mt-10">
                     <CardItem
                         translateZ={20}
                         as="button"
@@ -43,6 +44,7 @@ function Card({ textContent, image,href }) {
                 </Link>
             </CardBody>
         </CardContainer>
+        </Link>
     )
 }
 
