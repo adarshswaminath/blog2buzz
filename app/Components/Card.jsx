@@ -24,7 +24,7 @@ function Card({ textContent, image,href }) {
                     Hover over this card to unleash the power of CSS perspective
                 </CardItem>
                 <CardItem translateZ="100" className="w-full mt-4">
-                    <Image
+                    <img
                         src={image ? imageUrlWithoutParams : "/empty.jpg"}
                         height="1000"
                         width="1000"
