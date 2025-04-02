@@ -22,7 +22,7 @@
     "lottie-react": "^2.4.0",
     "next": "14.2.10",
     "posthog-js": "^1.128.1",
-    "puppeteer": "^22.6.5",
+    "puppeteer": "^22.15.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.1.0",
