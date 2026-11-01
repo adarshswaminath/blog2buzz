@@ -1,0 +1,164 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/*
+ * Blog2Buzz design tokens: "the daily edition".
+ * Paper and ink, hairline rules instead of cards, one editor's red used sparingly.
+ * Use them as Tailwind classes: bg-bg, bg-surface, border-border, text-fg, text-muted,
+ * text-accent-strong, font-display, font-mono ... Never hard-code colors in components.
+ */
+@theme {
+  /* Newsreader for headlines and reading, Inter for interface, JetBrains Mono for metadata. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-newsreader), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+
+  /* Paper */
+  --color-bg: #f4f3ef;
+  --color-surface: #ffffff;
+  --color-surface-muted: #fafaf7;
+  --color-surface-hover: #ebe9e2;
+  --color-border: #dcd9d0;
+  --color-border-strong: #c3bfb4;
+
+  /* Ink */
+  --color-fg: #171a21;
+  --color-fg-hover: #2b303b;
+  --color-muted: #575d68;
+  --color-subtle: #81858c;
+
+  /* Editor's red: ranks, focus, saved state, the "2". Nothing else. */
+  --color-accent: #d14a1f;
+  --color-accent-strong: #b23c15;
+  --color-accent-soft: #f8e4da;
+  --color-accent-on-dark: #ff7a4d;
+
+  /* Semantic */
+  --color-success: #2b7448;
+  --color-success-soft: #e3f1e8;
+  --color-danger: #b42318;
+  --color-danger-soft: #fbe9e7;
+
+  /* Shadows only for things that float above the page: menus, dialogs, toasts. */
+  --shadow-overlay: 0 1px 2px rgb(23 26 33 / 0.06), 0 16px 40px -12px rgb(23 26 33 / 0.28);
+
+  --radius-sm: 3px;
+  --radius-md: 5px;
+
+  /* Motion: short, soft, consistent. */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-fade-up: fade-up 240ms var(--ease-soft) both;
+  --animate-fade-in: fade-in 180ms ease-out both;
+  --animate-draw: draw 520ms var(--ease-soft) both;
+  --animate-pop: pop 320ms var(--ease-soft);
+  --animate-indeterminate: indeterminate 1.3s var(--ease-soft) infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  /* For SVG strokes with pathLength="1": the line draws itself. */
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes pop {
+    40% {
+      transform: scale(1.18);
+    }
+  }
+
+  @keyframes indeterminate {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(260%);
+    }
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 76rem;
+  padding-inline: 1.25rem;
+
+  @media (width >= 40rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Add to an SVG path together with pathLength="1" and animate-draw. */
+@utility stroke-draw {
+  stroke-dasharray: 1;
+}
+
+/* Highlighter stroke behind text: marks the sentences a summary keeps. */
+@utility marker {
+  background-image: linear-gradient(transparent 58%, var(--color-accent-soft) 58%, var(--color-accent-soft) 92%, transparent 92%);
+  box-decoration-break: clone;
+}
+
+/* Small uppercase mono label used for kickers, ranks and section names. */
+@utility kicker {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-bg text-fg antialiased;
+    overflow-x: clip;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    @apply bg-accent-soft text-fg;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+
+  dialog::backdrop {
+    background: rgb(23 26 33 / 0.28);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
